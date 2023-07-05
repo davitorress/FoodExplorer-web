@@ -3,3 +3,4 @@ export { Footer } from "./Footer";
 export { Header } from "./Header";
 export { Input } from "./Input";
 export { Logo } from "./Logo";
+export { Recipes } from "./Recipes";
