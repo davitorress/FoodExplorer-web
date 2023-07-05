@@ -3,13 +3,13 @@ import { ThemeProvider, StyleSheetManager } from "styled-components";
 
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/global";
-import { SignUp } from "./pages/SignUp";
+import { Home } from "./pages/Home";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<ThemeProvider theme={theme}>
 		<StyleSheetManager shouldForwardProp={(prop) => prop !== "theme"}>
 			<GlobalStyle />
-			<SignUp />
+			<Home />
 		</StyleSheetManager>
 	</ThemeProvider>
 );
