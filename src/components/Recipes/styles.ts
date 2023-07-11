@@ -47,11 +47,11 @@ export const Item = styled.li`
 	border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
 	background-color: ${({ theme }) => theme.COLORS.DARK_200};
 
-	> img {
+	> svg {
 		top: 16px;
 		right: 16px;
 		z-index: 10;
-		width: 24px;
+		font-size: 24px;
 		cursor: pointer;
 		position: absolute;
 	}
@@ -103,8 +103,7 @@ export const Actions = styled.div`
 		gap: 14px;
 
 		svg {
-			width: 24px;
-			height: 24px;
+			font-size: 24px;
 			cursor: pointer;
 		}
 
@@ -118,5 +117,6 @@ export const Actions = styled.div`
 
 	> button {
 		width: 100%;
+		padding: 4px 24px;
 	}
 `;

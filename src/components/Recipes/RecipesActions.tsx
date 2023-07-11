@@ -1,10 +1,8 @@
 import { useState, MouseEvent } from "react";
+import { FiMinus, FiPlus } from "react-icons/fi";
 
 import { Button } from "@/components";
 import { Actions } from "./styles";
-
-import minusIcon from "@/assets/minus-icon.svg";
-import plusIcon from "@/assets/plus-icon.svg";
 
 export function RecipesActions() {
 	const [count, setCount] = useState(1);
@@ -24,9 +22,9 @@ export function RecipesActions() {
 	return (
 		<Actions onClick={handleActionClick}>
 			<div>
-				<img src={minusIcon} alt="minus icon" onClick={removeProductCount} />
+				<FiMinus onClick={removeProductCount} />
 				<p>{String(count).padStart(2, "0")}</p>
-				<img src={plusIcon} alt="plus icon" onClick={addProductCount} />
+				<FiPlus onClick={addProductCount} />
 			</div>
 			<Button type="button" text="incluir" />
 		</Actions>

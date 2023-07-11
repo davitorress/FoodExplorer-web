@@ -1,7 +1,7 @@
+import { FiHeart } from "react-icons/fi";
+
 import { Recipes } from ".";
 import { Image, Item } from "./styles";
-
-import hearthIcon from "@/assets/hearth-icon.svg";
 
 interface RecipeItemProps {
 	name: string;
@@ -16,7 +16,7 @@ export function RecipesItem({ name, price, hasActions = false }: RecipeItemProps
 
 	return (
 		<Item onClick={handleItemClick}>
-			<img src={hearthIcon} alt="hearth icon" />
+			<FiHeart />
 
 			<Image>
 				<img src="/img/Mask group.png" alt="Product name" />
