@@ -1,12 +1,9 @@
 import { useState } from "react";
+import { FiMinus, FiPlus } from "react-icons/fi";
+import { PiReceipt, PiCaretLeft } from "react-icons/pi";
 
 import { Button, Footer, Header } from "@/components";
 import { Actions, BackButton, Container, Content, Image, Ingredients } from "./styles";
-
-import careLeftIcon from "@/assets/care_left-icon.svg";
-import minusIcon from "@/assets/minus-icon.svg";
-import plusIcon from "@/assets/plus-icon.svg";
-import receiptIcon from "@/assets/receipt-icon.svg";
 
 export function Recipe() {
 	const [count, setCount] = useState(1);
@@ -25,7 +22,7 @@ export function Recipe() {
 
 			<main>
 				<BackButton>
-					<img src={careLeftIcon} alt="care left icon" />
+					<PiCaretLeft />
 					voltar
 				</BackButton>
 
@@ -49,13 +46,11 @@ export function Recipe() {
 
 				<Actions>
 					<div>
-						<img src={minusIcon} alt="minus icon" onClick={removeProductCount} />
+						<FiMinus onClick={removeProductCount} />
 						<p>{String(count).padStart(2, "0")}</p>
-						<img src={plusIcon} alt="plus icon" onClick={addProductCount} />
+						<FiPlus alt="plus icon" onClick={addProductCount} />
 					</div>
-					<Button type="button" text="pedir ∙ R$ 25,00">
-						<img src={receiptIcon} alt="receipt icon" />
-					</Button>
+					<Button type="button" text="pedir ∙ R$ 25,00" icon={PiReceipt} />
 				</Actions>
 			</main>
 

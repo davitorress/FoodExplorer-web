@@ -29,6 +29,10 @@ export const BackButton = styled.button`
 	font-size: 2.4rem;
 	font-family: "Poppins", sans-serif;
 	color: ${({ theme }) => theme.COLORS.LIGHT_300};
+
+	svg {
+		font-size: 32px;
+	}
 `;
 
 export const Image = styled.picture`
@@ -122,7 +126,7 @@ export const Actions = styled.div`
 		font-size: 1.2rem;
 		line-height: 1.6rem;
 
-		img {
+		svg {
 			width: 22px;
 		}
 	}
