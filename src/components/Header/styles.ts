@@ -29,8 +29,8 @@ export const Receipt = styled.div`
 `;
 
 export const ReceiptButton = styled.div`
-	top: -10px;
-	right: -10px;
+	top: -5px;
+	right: -5px;
 	position: absolute;
 
 	width: 20px;
