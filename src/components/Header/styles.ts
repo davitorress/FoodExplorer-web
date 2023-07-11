@@ -10,6 +10,10 @@ export const Container = styled.header`
 
 	background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
+	> svg {
+		font-size: 32px;
+	}
+
 	> picture {
 		height: 32px;
 	}
