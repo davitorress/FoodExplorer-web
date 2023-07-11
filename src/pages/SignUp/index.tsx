@@ -7,9 +7,20 @@ export function SignUp() {
 			<Logo />
 
 			<Form>
-				<Input id="name" type="text" label="Seu nome" placeholder="Exemplo: Maria da Silva" />
-				<Input id="email" type="email" label="Email" placeholder="Exemplo: exemplo@exemplo.com" />
-				<Input id="password" type="password" label="Senha" placeholder="No mínimo 6 caracteres" />
+				<Input.Root>
+					<Input.Label id="name" text="Seu nome" />
+					<Input.Field id="name" placeholder="Exemplo: Maria da Silva" />
+				</Input.Root>
+
+				<Input.Root>
+					<Input.Label id="email" text="Email" />
+					<Input.Field id="email" type="email" placeholder="Exemplo: exemplo@exemplo.com" />
+				</Input.Root>
+
+				<Input.Root>
+					<Input.Label id="password" text="Senha" />
+					<Input.Field id="password" type="password" placeholder="No mínimo 6 caracteres" />
+				</Input.Root>
 
 				<Button type="submit" text="Criar conta" />
 

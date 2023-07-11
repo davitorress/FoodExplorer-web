@@ -1,14 +1,13 @@
-import { Container } from "./styles";
+import { InputRoot } from "./InputRoot";
+import { InputLabel } from "./InputLabel";
+import { InputGroup } from "./InputGroup";
+import { InputIcon } from "./InputIcon";
+import { InputField } from "./InputField";
 
-interface Props extends React.ComponentProps<React.FunctionComponent>, React.InputHTMLAttributes<HTMLInputElement> {
-	label: string;
-}
-
-export function Input({ id, label, type, ...rest }: Props) {
-	return (
-		<Container>
-			<label htmlFor={id}>{label}</label>
-			<input id={id} type={type || "text"} {...rest} />
-		</Container>
-	);
-}
+export const Input = {
+	Root: InputRoot,
+	Label: InputLabel,
+	Group: InputGroup,
+	Icon: InputIcon,
+	Field: InputField,
+};

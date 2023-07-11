@@ -6,8 +6,15 @@ export function SignIn() {
 		<Container>
 			<Logo />
 			<Form>
-				<Input id="email" label="Email" type="email" placeholder="Exemplo: exemplo@exemplo.com.br" />
-				<Input id="password" label="Senha" type="password" placeholder="No mínimo 6 caracteres" />
+				<Input.Root>
+					<Input.Label id="email" text="Email" />
+					<Input.Field id="email" type="email" placeholder="Exemplo: exemplo@exemplo.com.br" />
+				</Input.Root>
+
+				<Input.Root>
+					<Input.Label id="password" text="Senha" />
+					<Input.Field id="password" type="password" placeholder="No mínimo 6 caracteres" />
+				</Input.Root>
 
 				<Button type="submit" text="Entrar" />
 
