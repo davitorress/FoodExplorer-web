@@ -22,7 +22,7 @@ export function RecipesItem({ name, price, hasActions = false }: RecipeItemProps
 				<img src="/img/Mask group.png" alt="Product name" />
 			</Image>
 
-			<h3>{name}</h3>
+			<h3>{`${name} >`}</h3>
 			<p>R$ {price}</p>
 
 			{hasActions && <Recipes.Actions />}
