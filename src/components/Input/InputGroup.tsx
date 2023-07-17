@@ -2,8 +2,9 @@ import { ReactNode } from "react";
 
 interface Props {
 	children: ReactNode;
+	onClick?: () => void;
 }
 
-export function InputGroup({ children }: Props) {
-	return <div>{children}</div>;
+export function InputGroup({ children, onClick }: Props) {
+	return <div onClick={onClick}>{children}</div>;
 }
