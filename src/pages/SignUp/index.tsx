@@ -7,6 +7,8 @@ export function SignUp() {
 			<Logo />
 
 			<Form>
+				<h1>Crie sua conta</h1>
+
 				<Input.Root>
 					<Input.Label id="name" text="Seu nome" />
 					<Input.Field id="name" placeholder="Exemplo: Maria da Silva" />
