@@ -6,6 +6,8 @@ export function SignIn() {
 		<Container>
 			<Logo />
 			<Form>
+				<h1>Faça Login</h1>
+
 				<Input.Root>
 					<Input.Label id="email" text="Email" />
 					<Input.Field id="email" type="email" placeholder="Exemplo: exemplo@exemplo.com.br" />
