@@ -37,5 +37,25 @@ declare module "styled-components" {
 			CAKE_100: string;
 			CAKE_200: string;
 		};
+
+		SIZES: {
+			MOBILE_SM: string;
+			MOBILE_MD: string;
+			MOBILE_LG: string;
+			TABLET: string;
+			LAPTOP: string;
+			LAPTOP_LG: string;
+			DESKTOP: string;
+		};
+
+		DEVICES: {
+			MOBILE_SM: string;
+			MOBILE_MD: string;
+			MOBILE_LG: string;
+			TABLET: string;
+			LAPTOP: string;
+			LAPTOP_LG: string;
+			DESKTOP: string;
+		};
 	}
 }
