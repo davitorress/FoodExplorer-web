@@ -11,11 +11,40 @@ export const Container = styled.header`
 	background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
 	> svg {
+		cursor: pointer;
 		font-size: 32px;
 	}
 
 	> picture {
 		height: 32px;
+	}
+
+	> svg:last-of-type {
+		font-size: 64px;
+	}
+
+	@media ${({ theme }) => theme.DEVICES.TABLET} {
+		> :is(div:first-of-type, button, svg:last-of-type) {
+			display: none;
+		}
+	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		padding: 24px 64px;
+		gap: 32px;
+
+		> :is(svg:first-of-type, div:last-of-type) {
+			display: none;
+		}
+
+		> picture {
+			height: 56px;
+			width: fit-content;
+		}
+
+		> button {
+			width: 40%;
+		}
 	}
 `;
 

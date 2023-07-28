@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { FiMenu } from "react-icons/fi";
-import { PiReceipt } from "react-icons/pi";
+import { FiMenu, FiSearch } from "react-icons/fi";
+import { PiReceipt, PiSignOut } from "react-icons/pi";
 
-import { Menu, Logo } from "@/components";
+import { Menu, Logo, Input, Button } from "@/components";
 import { Container, Receipt, ReceiptButton } from "./styles";
 
 export function Header() {
@@ -19,10 +19,21 @@ export function Header() {
 
 			<Logo />
 
+			<Input.Root>
+				<Input.Group>
+					<Input.Icon icon={FiSearch} />
+					<Input.Field id="search" placeholder="Busque por pratos ou ingredientes" />
+				</Input.Group>
+			</Input.Root>
+
 			<Receipt>
 				<PiReceipt />
 				<ReceiptButton>0</ReceiptButton>
 			</Receipt>
+
+			<Button type="button" text={`Pedidos (0)`} icon={PiReceipt} />
+
+			<PiSignOut />
 		</Container>
 	);
 }
