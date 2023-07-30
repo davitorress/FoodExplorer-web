@@ -4,6 +4,10 @@ export const Container = styled.section`
 	width: 100%;
 	min-height: 100vh;
 
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto 1fr auto;
+
 	> main {
 		width: 100%;
 		padding: 12px 32px 54px;
@@ -41,6 +45,14 @@ export const BackButton = styled.button`
 	svg {
 		font-size: 22px;
 	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		font-size: 2.4rem;
+
+		svg {
+			font-size: 32px;
+		}
+	}
 `;
 
 export const Form = styled.form`
@@ -49,6 +61,46 @@ export const Form = styled.form`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 24px;
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		display: grid;
+		grid-gap: 32px;
+		grid-template-areas:
+			"image name category"
+			"ingredientes ingredientes price"
+			"description description description"
+			"actions actions actions";
+		grid-template-columns: max-content 1fr max-content;
+
+		> div:nth-child(1) {
+			grid-area: image;
+			width: fit-content;
+
+			div {
+				padding: 12px 32px;
+			}
+		}
+
+		> div:nth-child(2) {
+			grid-area: name;
+		}
+
+		> div:nth-child(3) {
+			grid-area: category;
+		}
+
+		> div:nth-child(4) {
+			grid-area: ingredientes;
+		}
+
+		> div:nth-child(5) {
+			grid-area: price;
+		}
+
+		> div:nth-child(6) {
+			grid-area: description;
+		}
+	}
 `;
 
 export const Buttons = styled.section`
@@ -66,5 +118,14 @@ export const Buttons = styled.section`
 
 	button[type="submit"] {
 		background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		grid-area: actions;
+		justify-content: flex-end;
+
+		button {
+			width: fit-content;
+		}
 	}
 `;
