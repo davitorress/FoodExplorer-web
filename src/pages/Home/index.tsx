@@ -1,7 +1,7 @@
 import { Header, Recipes, Footer } from "@/components";
 import { Container, Banner } from "./styles";
 
-import bannerImg from "@/assets/section_img.png";
+import bannerImg from "@/assets/section_img1.png";
 
 const recipes = [
 	{ name: "Salada 1", price: 49.97, img: "/img/Mask group.png" },
