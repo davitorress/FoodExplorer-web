@@ -46,6 +46,12 @@ export const Container = styled.header`
 			width: 40%;
 		}
 	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP_LG} {
+		> button {
+			width: 30%;
+		}
+	}
 `;
 
 export const Receipt = styled.div`
