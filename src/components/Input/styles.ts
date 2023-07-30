@@ -82,11 +82,23 @@ export const Items = styled.section`
 
 	display: grid;
 	align-items: center;
-	grid-template-columns: 1fr 1fr;
+	justify-content: space-between;
+	grid-template-columns: min-content min-content;
 	gap: 16px;
 
 	border-radius: 8px;
 	background-color: ${({ theme }) => theme.COLORS.DARK_900};
+
+	@media ${({ theme }) => theme.DEVICES.TABLET_LG} {
+		justify-content: flex-start;
+		grid-template-columns: repeat(4, min-content);
+	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP_LG} {
+		justify-content: flex-start;
+		display: flex;
+		flex-wrap: wrap;
+	}
 `;
 
 export const Item = styled.section<{ theme: DefaultTheme; newer: string }>`
@@ -99,6 +111,11 @@ export const Item = styled.section<{ theme: DefaultTheme; newer: string }>`
 	color: ${({ theme }) => theme.COLORS.LIGHT_100};
 	border: ${({ theme, newer }) => (newer === "true" ? `1px dashed ${theme.COLORS.LIGHT_500}` : "none")};
 	background-color: ${({ theme, newer }) => (newer === "true" ? "transparent" : theme.COLORS.LIGHT_600)};
+
+	> input {
+		min-width: 100px;
+		max-width: 120px;
+	}
 
 	> button {
 		border: none;
