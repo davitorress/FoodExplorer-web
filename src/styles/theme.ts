@@ -49,6 +49,7 @@ const DEVICES = {
 	MOBILE_MD: `(max-width: ${SIZES.MOBILE_MD})`,
 	MOBILE_LG: `(max-width: ${SIZES.MOBILE_LG})`,
 	TABLET: `(max-width: ${SIZES.TABLET})`,
+	TABLET_LG: `(min-width: ${SIZES.TABLET})`,
 	LAPTOP: `(min-width: ${SIZES.LAPTOP})`,
 	LAPTOP_LG: `(min-width: ${SIZES.LAPTOP_LG})`,
 	DESKTOP: `(min-width: ${SIZES.DESKTOP})`,
