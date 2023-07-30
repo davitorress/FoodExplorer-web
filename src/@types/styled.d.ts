@@ -53,6 +53,7 @@ declare module "styled-components" {
 			MOBILE_MD: string;
 			MOBILE_LG: string;
 			TABLET: string;
+			TABLET_LG: string;
 			LAPTOP: string;
 			LAPTOP_LG: string;
 			DESKTOP: string;
