@@ -17,6 +17,14 @@ export const Container = styled.footer`
 		font-family: "DM Sans", sans-serif;
 		color: ${({ theme }) => theme.COLORS.LIGHT_200};
 	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		padding: 24px 124px;
+
+		> p {
+			font-size: 1.4rem;
+		}
+	}
 `;
 
 export const Logo = styled.picture`
@@ -28,5 +36,9 @@ export const Logo = styled.picture`
 		width: auto;
 		height: 100%;
 		object-fit: contain;
+	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		height: 30px;
 	}
 `;
