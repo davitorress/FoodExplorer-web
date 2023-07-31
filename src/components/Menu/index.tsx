@@ -1,14 +1,19 @@
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
 import { FiX, FiSearch } from "react-icons/fi";
 
 import { Footer, Input } from "@/components";
 import { Container } from "./styles";
+
+import { useAuth } from "@/hooks/useAuth";
 
 interface Props {
 	onClose: () => void;
 }
 
 export function Menu({ onClose }: Props) {
+	const { user, signOut } = useAuth();
+
 	return (
 		<>
 			{createPortal(
@@ -28,8 +33,13 @@ export function Menu({ onClose }: Props) {
 
 						<ul>
 							<li>
-								<a href="">Sair</a>
+								<a onClick={() => signOut()}>Sair</a>
 							</li>
+							{user.admin && (
+								<li>
+									<Link to="/admin/create">Novo prato</Link>
+								</li>
+							)}
 						</ul>
 					</main>
 
