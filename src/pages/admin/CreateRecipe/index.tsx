@@ -1,15 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { PiCaretLeft, PiUploadSimple } from "react-icons/pi";
 
 import { Button, Footer, Header, Input } from "@/components";
 import { Container, Form, BackButton } from "./styles";
 
 export function CreateRecipe() {
+	const navigate = useNavigate();
+
 	return (
 		<Container>
 			<Header />
 
 			<main>
-				<BackButton>
+				<BackButton onClick={() => navigate(-1)}>
 					<PiCaretLeft />
 					voltar
 				</BackButton>
