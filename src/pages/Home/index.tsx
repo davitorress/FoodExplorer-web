@@ -4,9 +4,10 @@ import { Container, Banner } from "./styles";
 import bannerImg from "@/assets/section_img1.png";
 
 const recipes = [
-	{ name: "Salada 1", price: 49.97, img: "/img/Mask group.png" },
-	{ name: "Salada 2", price: 49.97, img: "/img/Mask group.png" },
-	{ name: "Salada 3", price: 49.97, img: "/img/Mask group.png" },
+	{ name: "Salada 1", description: "Massa fresca com camarões e pesto.", price: 49.97, img: "/img/Mask group.png" },
+	{ name: "Salada 2", description: "Massa fresca com camarões e pesto.", price: 49.97, img: "/img/Mask group.png" },
+	{ name: "Salada 3", description: "Massa fresca com camarões e pesto.", price: 49.97, img: "/img/Mask group.png" },
+	{ name: "Salada 3", description: "Massa fresca com camarões e pesto.", price: 49.97, img: "/img/Mask group.png" },
 ];
 
 export function Home() {
@@ -22,22 +23,37 @@ export function Home() {
 					<p>Sinta o cuidado de preparo com ingredientes selecionados.</p>
 				</Banner>
 
-				<Recipes.Root>
-					<Recipes.Carousel title="Refeições">
-						{recipes.map((recipe, index) => (
-							<Recipes.Item key={String(index)} name={recipe.name} price={recipe.price} hasActions />
-						))}
-					</Recipes.Carousel>
-					<Recipes.Carousel title="Pratos Principais">
-						{recipes.map((recipe, index) => (
-							<Recipes.Item key={String(index)} name={recipe.name} price={recipe.price} hasActions />
-						))}
-					</Recipes.Carousel>
-					<Recipes.Carousel title="Bebidas">
-						{recipes.map((recipe, index) => (
-							<Recipes.Item key={String(index)} name={recipe.name} price={recipe.price} hasActions />
-						))}
-					</Recipes.Carousel>
+				<Recipes.Root title="Refeições">
+					{recipes.map((recipe, index) => (
+						<Recipes.Item
+							key={String(index)}
+							name={recipe.name}
+							description={recipe.description}
+							price={recipe.price}
+						/>
+					))}
+				</Recipes.Root>
+
+				<Recipes.Root title="Pratos principais">
+					{recipes.map((recipe, index) => (
+						<Recipes.Item
+							key={String(index)}
+							name={recipe.name}
+							description={recipe.description}
+							price={recipe.price}
+						/>
+					))}
+				</Recipes.Root>
+
+				<Recipes.Root title="Bebidas">
+					{recipes.map((recipe, index) => (
+						<Recipes.Item
+							key={String(index)}
+							name={recipe.name}
+							description={recipe.description}
+							price={recipe.price}
+						/>
+					))}
 				</Recipes.Root>
 			</main>
 

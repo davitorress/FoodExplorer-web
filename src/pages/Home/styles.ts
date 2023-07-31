@@ -31,6 +31,7 @@ export const Banner = styled.div`
 	> img {
 		bottom: 0;
 		left: -30px;
+		width: 200px;
 		position: absolute;
 	}
 

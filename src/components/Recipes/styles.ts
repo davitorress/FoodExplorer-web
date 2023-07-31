@@ -7,11 +7,6 @@ export const Container = styled.section`
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
-`;
-
-export const Carousel = styled.div`
-	width: 100%;
-	overflow-x: visible;
 
 	> h2 {
 		font-weight: 500;
@@ -20,20 +15,30 @@ export const Carousel = styled.div`
 		font-family: "Poppins", sans-serif;
 		color: ${({ theme }) => theme.COLORS.LIGHT_200};
 	}
+
+	div.slick-slider {
+		:is(svg, svg:hover) {
+			color: ${({ theme }) => theme.COLORS.LIGHT_200};
+		}
+	}
+
+	@media ${({ theme }) => theme.DEVICES.MOBILE_LG} {
+		div.slick-slide div {
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		> h2 {
+			font-size: 3.2rem;
+		}
+	}
 `;
 
-export const List = styled.ul`
-	width: 100%;
-	overflow-x: scroll;
-
-	display: flex;
-	gap: 16px;
-`;
-
-export const Item = styled.li`
+export const Item = styled.article`
 	width: 210px;
 	padding: 24px;
-	flex-shrink: 0;
 	position: relative;
 
 	display: flex;
@@ -64,11 +69,41 @@ export const Item = styled.li`
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
 	}
 
+	> span {
+		display: none;
+		font-weight: 400;
+		font-size: 1.4rem;
+		line-height: 2.4rem;
+		font-family: "Roboto", sans-serif;
+		color: ${({ theme }) => theme.COLORS.LIGHT_300};
+	}
+
 	> p {
 		font-weight: 400;
 		font-size: 1.6rem;
 		font-family: "Roboto", sans-serif;
 		color: ${({ theme }) => theme.COLORS.CAKE_200};
+	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		max-width: 300px;
+		width: fit-content;
+		gap: 16px;
+
+		> h3 {
+			font-weight: 700;
+			font-size: 2.4rem;
+			line-height: 3.4rem;
+		}
+
+		> span {
+			display: block;
+		}
+
+		> p {
+			font-size: 3.2rem;
+			line-height: 5.2rem;
+		}
 	}
 `;
 
@@ -82,6 +117,11 @@ export const Image = styled.picture`
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		width: 176px;
+		height: 176px;
 	}
 `;
 
@@ -118,5 +158,19 @@ export const Actions = styled.div`
 	> button {
 		width: 100%;
 		padding: 4px 24px;
+	}
+
+	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
+		flex-direction: row;
+
+		> div {
+			p {
+				font-size: 2rem;
+			}
+		}
+
+		> button {
+			padding: 10px 24px;
+		}
 	}
 `;

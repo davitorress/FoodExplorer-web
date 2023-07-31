@@ -6,10 +6,10 @@ import { Image, Item } from "./styles";
 interface RecipeItemProps {
 	name: string;
 	price: number;
-	hasActions: boolean;
+	description: string;
 }
 
-export function RecipesItem({ name, price, hasActions = false }: RecipeItemProps) {
+export function RecipesItem({ name, description, price }: RecipeItemProps) {
 	function handleItemClick() {
 		console.log("Item clicked");
 	}
@@ -23,9 +23,10 @@ export function RecipesItem({ name, price, hasActions = false }: RecipeItemProps
 			</Image>
 
 			<h3>{`${name} >`}</h3>
+			<span>{description}</span>
 			<p>R$ {price}</p>
 
-			{hasActions && <Recipes.Actions />}
+			<Recipes.Actions />
 		</Item>
 	);
 }
