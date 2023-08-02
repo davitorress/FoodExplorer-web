@@ -8,7 +8,12 @@ import { Container, Receipt, ReceiptButton } from "./styles";
 
 import { useAuth } from "@/hooks/useAuth";
 
-export function Header() {
+interface HeaderProps {
+	searchValue?: string;
+	searchOnChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export function Header({ searchValue, searchOnChange }: HeaderProps) {
 	const navigate = useNavigate();
 	const { signOut, user } = useAuth();
 	const [showMenu, setShowMenu] = useState(false);
@@ -19,7 +24,7 @@ export function Header() {
 
 	return (
 		<Container>
-			{showMenu && <Menu onClose={handleShowMenu} />}
+			{showMenu && <Menu searchValue={searchValue} searchOnChange={searchOnChange} onClose={handleShowMenu} />}
 			<FiMenu onClick={handleShowMenu} />
 
 			<Logo />
@@ -27,7 +32,12 @@ export function Header() {
 			<Input.Root>
 				<Input.Group>
 					<Input.Icon icon={FiSearch} />
-					<Input.Field id="search" placeholder="Busque por pratos ou ingredientes" />
+					<Input.Field
+						id="search"
+						placeholder="Busque por pratos ou ingredientes"
+						value={searchValue}
+						onChange={searchOnChange}
+					/>
 				</Input.Group>
 			</Input.Root>
 

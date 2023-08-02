@@ -7,11 +7,13 @@ import { Container } from "./styles";
 
 import { useAuth } from "@/hooks/useAuth";
 
-interface Props {
+interface MenuProps {
 	onClose: () => void;
+	searchValue?: string;
+	searchOnChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function Menu({ onClose }: Props) {
+export function Menu({ onClose, searchValue, searchOnChange }: MenuProps) {
 	const { user, signOut } = useAuth();
 
 	return (
@@ -27,7 +29,12 @@ export function Menu({ onClose }: Props) {
 						<Input.Root>
 							<Input.Group>
 								<Input.Icon icon={FiSearch} />
-								<Input.Field id="search" placeholder="Busque por pratos ou ingredientes" />
+								<Input.Field
+									id="search"
+									placeholder="Busque por pratos ou ingredientes"
+									value={searchValue}
+									onChange={searchOnChange}
+								/>
 							</Input.Group>
 						</Input.Root>
 

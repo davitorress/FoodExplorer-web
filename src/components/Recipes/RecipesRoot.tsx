@@ -17,10 +17,10 @@ export function RecipesRoot({ title, children }: RecipesRootProps) {
 			<h2>{title}</h2>
 			<Slider
 				arrows={true}
-				infinite={true}
+				infinite={false}
 				slidesToShow={4}
 				slidesToScroll={1}
-				centerMode={true}
+				adaptiveHeight={true}
 				nextArrow={<PiCaretRight />}
 				prevArrow={<PiCaretLeft />}
 				responsive={[

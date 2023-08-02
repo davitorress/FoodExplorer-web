@@ -4,7 +4,10 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { Button } from "@/components";
 import { Actions } from "./styles";
 
+import { useAuth } from "@/hooks/useAuth";
+
 export function RecipesActions() {
+	const { user } = useAuth();
 	const [count, setCount] = useState(1);
 
 	function handleActionClick(ev: MouseEvent<HTMLDivElement>) {
@@ -18,6 +21,8 @@ export function RecipesActions() {
 	function addProductCount() {
 		setCount(count + 1);
 	}
+
+	if (user.admin) return null;
 
 	return (
 		<Actions onClick={handleActionClick}>

@@ -3,6 +3,7 @@ import { AxiosError } from "axios";
 import { api } from "@/services/api";
 
 interface SessionProps {
+	name?: string;
 	email: string;
 	password: string;
 	admin?: boolean;
@@ -25,6 +26,7 @@ interface DataProps {
 interface AuthContextProps {
 	user: UserProps;
 	signOut: () => void;
+	signUp: ({ name, email, password }: SessionProps) => void;
 	signIn: ({ email, password, admin }: SessionProps) => void;
 }
 
@@ -56,28 +58,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 				api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 			})
 			.catch((error: AxiosError<{ status: string; message: string }>) => {
-				console.log(error);
 				if (error.response) {
 					alert(error.response.data.message);
 				} else {
 					alert("Erro ao fazer login");
 				}
 			});
-		// try {
-		// 	const response = await api.post("/sessions", { email, password, admin });
-		// 	const { token, user } = response.data;
+	}
 
-		// 	localStorage.setItem("@FoodExplorer:token", token);
-		// 	localStorage.setItem("@FoodExplorer:user", JSON.stringify(user));
-
-		// 	setData({ token, user });
-		// 	api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-		// } catch (error: any) {
-		// 	console.log(error);
-		// 	if (error.response) {
-		// 		alert(error.response.data.message);
-		// 	}
-		// }
+	async function signUp({ name, email, password }: SessionProps) {
+		api
+			.post("/users", { name, email, password })
+			.then((response) => {
+				if (response.status === 201) {
+					alert("Usuário criado com sucesso");
+				}
+			})
+			.catch((error: AxiosError<{ status: string; message: string }>) => {
+				if (error.response) {
+					alert(error.response.data.message);
+				} else {
+					alert("Erro ao criar usuário");
+				}
+			});
 	}
 
 	async function signOut() {
@@ -90,6 +93,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		<AuthContext.Provider
 			value={{
 				signIn,
+				signUp,
 				signOut,
 				user: data.user,
 			}}

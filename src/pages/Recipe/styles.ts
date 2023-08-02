@@ -154,6 +154,8 @@ export const Ingredients = styled.div`
 	@media ${({ theme }) => theme.DEVICES.LAPTOP} {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: flex-start;
+		gap: 16px;
 	}
 
 	@media ${({ theme }) => theme.DEVICES.LAPTOP_LG} {
@@ -219,6 +221,7 @@ export const Actions = styled.div`
 		align-self: flex-start;
 
 		> button {
+			font-size: 1.4rem;
 			width: fit-content;
 		}
 	}
