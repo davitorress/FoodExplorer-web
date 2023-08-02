@@ -9,7 +9,7 @@ export function AuthRoutes() {
 		<Routes>
 			<Route path="/" element={<SignIn />} />
 			<Route path="/register" element={<SignUp />} />
-			<Route path="/admin" element={<AdminSignIn />} />
+			<Route path="/adm" element={<AdminSignIn />} />
 			<Route path="*" element={<Navigate to="/" replace />} />
 		</Routes>
 	);
