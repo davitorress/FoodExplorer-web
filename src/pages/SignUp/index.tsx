@@ -5,6 +5,7 @@ import { Logo, Input, Button } from "@/components";
 import { Container, Form } from "./styles";
 
 import { useAuth } from "@/hooks/useAuth";
+import { notify } from "@/utils/notify";
 
 export function SignUp() {
 	const { signUp } = useAuth();
@@ -14,7 +15,7 @@ export function SignUp() {
 
 	function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-		if (!name || !email || !password) alert("Preencha todos os campos");
+		if (!name || !email || !password) notify("warning", "Preencha todos os campos");
 		else {
 			signUp({ name, email, password });
 			setName("");

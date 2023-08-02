@@ -8,6 +8,7 @@ import { Container, Form, BackButton } from "./styles";
 
 import { api } from "@/services/api";
 import { Category } from "@/@types";
+import { notify } from "@/utils/notify";
 
 export function CreateRecipe() {
 	const navigate = useNavigate();
@@ -19,7 +20,7 @@ export function CreateRecipe() {
 			.get("/recipes")
 			.then((response: AxiosResponse<Category[] | []>) => setCategories(response.data))
 			.catch(() => {
-				alert("Erro ao carregar as categorias.");
+				notify("error", "Erro ao carregar as categorias.");
 			});
 	}, []);
 
@@ -27,7 +28,7 @@ export function CreateRecipe() {
 
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("00,00");
-	const [category, setCategory] = useState(0);
+	const [category, setCategory] = useState(1);
 	const [description, setDescription] = useState("");
 	const [image, setImage] = useState<File | undefined>(undefined);
 
@@ -47,19 +48,19 @@ export function CreateRecipe() {
 		const file = event.target.files?.[0];
 		setImage(file);
 
-		alert("Imagem salva com sucesso!");
+		notify("success", "Imagem salva com sucesso!");
 	}
 
 	function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 
 		if (ingredient.length > 0) {
-			alert("Adicione o ingrediente antes de salvar.");
+			notify("warning", "Adicione o ingrediente antes de salvar.");
 			return null;
 		}
 
 		if (!name || !price || !category || !description || !image || !ingredients.length) {
-			alert("Preencha todos os campos.");
+			notify("warning", "Preencha todos os campos.");
 		} else {
 			const numberPrice = Number(String(price).replace(",", "."));
 
@@ -73,19 +74,18 @@ export function CreateRecipe() {
 						api
 							.patch(`/recipes/${response.data.id}/image`, fileUpload)
 							.then(() => {
-								alert("Prato cadastrado com sucesso!");
+								notify("success", "Prato cadastrado com sucesso!");
+								navigate(-1);
 							})
 							.catch(() => {
 								api.delete(`/recipes/${response.data.id}`).then(() => {
-									alert("Erro ao cadastrar o prato.");
+									notify("error", "Erro ao cadastrar o prato.");
 								});
 							});
-
-						navigate(-1);
 					}
 				})
 				.catch(() => {
-					alert("Erro ao cadastrar o prato.");
+					notify("error", "Erro ao cadastrar o prato.");
 				});
 		}
 	}

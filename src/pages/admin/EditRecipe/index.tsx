@@ -8,6 +8,7 @@ import { Container, Form, BackButton, Buttons } from "./styles";
 
 import { Category, Recipe as IRecipe } from "@/@types";
 import { api } from "@/services/api";
+import { notify } from "@/utils/notify";
 
 export function EditRecipe() {
 	const navigate = useNavigate();
@@ -20,7 +21,7 @@ export function EditRecipe() {
 			.get("/recipes")
 			.then((response: AxiosResponse<Category[] | []>) => setCategories(response.data))
 			.catch(() => {
-				alert("Erro ao carregar as categorias.");
+				notify("error", "Erro ao carregar as categorias.");
 			});
 	}, []);
 
@@ -28,7 +29,7 @@ export function EditRecipe() {
 
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("00,00");
-	const [category, setCategory] = useState(0);
+	const [category, setCategory] = useState(1);
 	const [description, setDescription] = useState("");
 	const [image, setImage] = useState<File | undefined>(undefined);
 
@@ -63,11 +64,12 @@ export function EditRecipe() {
 		const file = event.target.files?.[0];
 		setImage(file);
 
-		alert("Imagem salva com sucesso!");
+		notify("success", "Imagem salva com sucesso!");
 	}
 
 	function handleDeleteRecipe() {
 		api.delete(`/recipes/${id}`).then(() => {
+			notify("success", "Prato excluído com sucesso!");
 			navigate("/");
 		});
 	}
@@ -76,12 +78,12 @@ export function EditRecipe() {
 		event.preventDefault();
 
 		if (ingredient.length > 0) {
-			alert("Adicione o ingrediente antes de salvar.");
+			notify("warning", "Adicione o ingrediente antes de salvar.");
 			return null;
 		}
 
 		if (!name || !price || !category || !description || !ingredients.length) {
-			alert("Preencha todos os campos.");
+			notify("warning", "Preencha todos os campos.");
 		} else {
 			const numberPrice = Number(String(price).replace(",", "."));
 
@@ -96,19 +98,19 @@ export function EditRecipe() {
 							api
 								.patch(`/recipes/${response.data.id}/image`, fileUpload)
 								.then(() => {
-									alert("Imagem atualizada com sucesso!");
+									notify("success", "Imagem atualizada com sucesso!");
 								})
 								.catch(() => {
-									alert("Erro ao atualizar a imagem.");
+									notify("error", "Erro ao atualizar a imagem.");
 								});
 						}
 
-						alert("Prato atualizado com sucesso!");
+						notify("success", "Prato atualizado com sucesso!");
 						navigate(-1);
 					}
 				})
 				.catch(() => {
-					alert("Erro ao atualizar o prato.");
+					notify("error", "Erro ao atualizar o prato.");
 				});
 		}
 	}

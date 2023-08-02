@@ -8,6 +8,7 @@ import bannerImg from "@/assets/section_img1.png";
 
 import { api } from "@/services/api";
 import { Category } from "@/@types";
+import { notify } from "@/utils/notify";
 
 export function Home() {
 	const [search, setSearch] = useState("");
@@ -34,7 +35,7 @@ export function Home() {
 			.get("/recipes?name=&category=")
 			.then((response: AxiosResponse<Category[] | []>) => setRecipes(response.data))
 			.catch(() => {
-				alert("Erro ao carregar as receitas.");
+				notify("error", "Erro ao carregar as receitas.");
 			});
 	}, []);
 

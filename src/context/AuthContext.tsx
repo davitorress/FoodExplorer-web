@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { AxiosError } from "axios";
 import { api } from "@/services/api";
+import { notify } from "@/utils/notify";
 
 interface SessionProps {
 	name?: string;
@@ -59,9 +60,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 			})
 			.catch((error: AxiosError<{ status: string; message: string }>) => {
 				if (error.response) {
-					alert(error.response.data.message);
+					notify("error", error.response.data.message);
 				} else {
-					alert("Erro ao fazer login");
+					notify("error", "Erro ao fazer login");
 				}
 			});
 	}
@@ -71,14 +72,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 			.post("/users", { name, email, password })
 			.then((response) => {
 				if (response.status === 201) {
-					alert("Usuário criado com sucesso");
+					notify("success", "Usuário criado com sucesso");
 				}
 			})
 			.catch((error: AxiosError<{ status: string; message: string }>) => {
 				if (error.response) {
-					alert(error.response.data.message);
+					notify("error", error.response.data.message);
 				} else {
-					alert("Erro ao criar usuário");
+					notify("error", "Erro ao criar usuário");
 				}
 			});
 	}
