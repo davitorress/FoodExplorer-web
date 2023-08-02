@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Logo, Input, Button } from "@/components";
 import { Container, Form } from "./styles";
@@ -9,6 +9,7 @@ import { notify } from "@/utils/notify";
 
 export function SignUp() {
 	const { signUp } = useAuth();
+	const navigate = useNavigate();
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -26,7 +27,7 @@ export function SignUp() {
 
 	return (
 		<Container>
-			<Logo />
+			<Logo onClick={() => navigate("/admin")} />
 
 			<Form onSubmit={handleSubmit}>
 				<h1>Crie sua conta</h1>

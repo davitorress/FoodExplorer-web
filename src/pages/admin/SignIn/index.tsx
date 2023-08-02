@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Button, Input } from "@/components";
 import { Container, Form } from "./styles";
@@ -9,6 +10,7 @@ import logoAdminImg from "@/assets/logo_admin.svg";
 
 export function SignIn() {
 	const { signIn } = useAuth();
+	const navigate = useNavigate();
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -20,7 +22,7 @@ export function SignIn() {
 
 	return (
 		<Container>
-			<picture>
+			<picture onClick={() => navigate("/")}>
 				<img src={logoAdminImg} alt="FoodExplorer" />
 			</picture>
 

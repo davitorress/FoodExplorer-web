@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Button, Input, Logo } from "@/components";
 import { Container, Form } from "./styles";
@@ -9,6 +9,7 @@ import { notify } from "@/utils/notify";
 
 export function SignIn() {
 	const { signIn } = useAuth();
+	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -24,7 +25,7 @@ export function SignIn() {
 
 	return (
 		<Container>
-			<Logo />
+			<Logo onClick={() => navigate("/admin")} />
 			<Form onSubmit={handleSubmit}>
 				<h1>Faça Login</h1>
 
