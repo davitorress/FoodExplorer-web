@@ -27,7 +27,7 @@ export function SignIn() {
 			</picture>
 
 			<Form onSubmit={handleSubmit}>
-				<h1>Faça Login</h1>
+				<h1>Faça Login (Administrativo)</h1>
 
 				<Input.Root>
 					<Input.Label id="email" text="Email" />
