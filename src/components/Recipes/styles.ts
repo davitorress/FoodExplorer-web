@@ -17,6 +17,8 @@ export const Container = styled.section`
 	}
 
 	div.slick-slider {
+		height: max-content;
+
 		:is(svg, svg:hover) {
 			color: ${({ theme }) => theme.COLORS.LIGHT_200};
 		}

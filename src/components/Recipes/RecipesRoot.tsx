@@ -20,7 +20,7 @@ export function RecipesRoot({ title, children }: RecipesRootProps) {
 				infinite={false}
 				slidesToShow={4}
 				slidesToScroll={1}
-				adaptiveHeight={true}
+				adaptiveHeight={false}
 				nextArrow={<PiCaretRight />}
 				prevArrow={<PiCaretLeft />}
 				responsive={[
