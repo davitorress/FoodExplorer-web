@@ -21,7 +21,7 @@ Acesso ao projeto: [FoodExplorer](https://dave-food-explorer-web.vercel.app/)
 
 ## Login como administrador
 
-Para acessar a área de administrador, basta clicar na logo do FoodExplorer no Login/Cadastro e inserir as credenciais abaixo:
+Para acessar a área de administrador, basta clicar na logo do FoodExplorer no Login/Cadastro, irá aparecer um formulário com o título "Login Administrativo", e inserir as credenciais abaixo:
 
 - Email: `admin@email.com`
 - Senha: `123456`
